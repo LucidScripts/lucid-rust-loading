@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lucid Rust</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #0a0a0f;
+            color: #e0e6f0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        /* Animated background gradient */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 20% 50%, rgba(30, 60, 90, 0.3) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 50%, rgba(50, 30, 20, 0.2) 0%, transparent 60%),
+                        radial-gradient(ellipse at 50% 100%, rgba(20, 20, 40, 0.4) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            width: 90%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .server-name {
+            font-size: 3.2em;
+            font-weight: 700;
+            letter-spacing: 4px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #8ecfff 0%, #c4a0ff 50%, #ff9e7a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            color: #7a8da6;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 20px 14px;
+            backdrop-filter: blur(4px);
+        }
+
+        .info-card h3 {
+            font-size: 0.7em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #5a7a9a;
+            margin-bottom: 10px;
+        }
+
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .info-card li {
+            font-size: 0.85em;
+            color: #b0bfd0;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+
+        .info-card li:last-child {
+            border-bottom: none;
+        }
+
+        .highlight {
+            color: #8ecfff;
+        }
+
+        .vip-banner {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(192, 192, 192, 0.05));
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 8px;
+            padding: 14px 24px;
+            margin-bottom: 30px;
+        }
+
+        .vip-banner p {
+            font-size: 0.85em;
+            color: #c4a86a;
+            letter-spacing: 1px;
+        }
+
+        .loading-bar-container {
+            width: 300px;
+            height: 3px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 2px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .loading-bar {
+            height: 100%;
+            width: 40%;
+            background: linear-gradient(90deg, transparent, #8ecfff, transparent);
+            border-radius: 2px;
+            animation: loadSlide 1.8s ease-in-out infinite;
+        }
+
+        @keyframes loadSlide {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(350%); }
+        }
+
+        .loading-text {
+            font-size: 0.75em;
+            color: #4a5a6a;
+            margin-top: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 600px) {
+            .server-name { font-size: 2em; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="server-name">Lucid Rust</h1>
+        <p class="tagline">2x Vanilla+ &middot; Monthly Wipes &middot; No P2W</p>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>Server Info</h3>
+                <ul>
+                    <li><span class="highlight">2x</span> Gather &amp; Loot</li>
+                    <li>Monthly Wipe Schedule</li>
+                    <li>Active Admins</li>
+                    <li>Trade System</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Commands</h3>
+                <ul>
+                    <li>/trade &lt;player&gt;</li>
+                    <li>/skinbox</li>
+                    <li>/skin &lt;id&gt;</li>
+                    <li>/info</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>Rules</h3>
+                <ul>
+                    <li>No cheating or exploiting</li>
+                    <li>No racism or harassment</li>
+                    <li>No spamming chat</li>
+                    <li>Have fun!</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="vip-banner">
+            <p>VIP PERKS AVAILABLE &middot; CUSTOM SKINS &middot; CHAT TAGS &middot; VISIT OUR STORE</p>
+        </div>
+
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+        <p class="loading-text">Loading into server...</p>
+    </div>
+</body>
+</html>
