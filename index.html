@@ -19,40 +19,20 @@
             overflow: hidden;
         }
 
-        /* YouTube video background */
-        .video-bg {
-            position: fixed;
-            top: 50%; left: 50%;
-            min-width: 100vw;
-            min-height: 100vh;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            z-index: 0;
-            pointer-events: none;
-        }
-
-        .video-bg iframe {
-            width: 100vw;
-            height: 56.25vw; /* 16:9 */
-            min-height: 100vh;
-            min-width: 177.78vh; /* 16:9 */
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        /* Dark overlay on top of video */
-        .video-overlay {
+        /* Animated background gradient */
+        body::before {
+            content: '';
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(5, 5, 10, 0.7);
-            z-index: 1;
+            background: radial-gradient(ellipse at 20% 50%, rgba(30, 60, 90, 0.3) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 50%, rgba(50, 30, 20, 0.2) 0%, transparent 60%),
+                        radial-gradient(ellipse at 50% 100%, rgba(20, 20, 40, 0.4) 0%, transparent 50%);
+            z-index: 0;
         }
 
         .container {
             position: relative;
-            z-index: 2;
+            z-index: 1;
             width: 90%;
             max-width: 800px;
             text-align: center;
@@ -68,12 +48,11 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             text-transform: uppercase;
-            text-shadow: none;
         }
 
         .tagline {
             font-size: 1.1em;
-            color: #9aabbf;
+            color: #7a8da6;
             letter-spacing: 2px;
             margin-bottom: 40px;
             text-transform: uppercase;
@@ -87,12 +66,11 @@
         }
 
         .info-card {
-            background: rgba(10, 10, 20, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 8px;
             padding: 20px 14px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
+            backdrop-filter: blur(4px);
         }
 
         .info-card h3 {
@@ -124,13 +102,11 @@
         }
 
         .vip-banner {
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(192, 192, 192, 0.06));
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.08), rgba(192, 192, 192, 0.05));
             border: 1px solid rgba(255, 215, 0, 0.15);
             border-radius: 8px;
             padding: 14px 24px;
             margin-bottom: 30px;
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
         }
 
         .vip-banner p {
@@ -142,7 +118,7 @@
         .loading-bar-container {
             width: 300px;
             height: 3px;
-            background: rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.05);
             border-radius: 2px;
             margin: 0 auto;
             overflow: hidden;
@@ -163,7 +139,7 @@
 
         .loading-text {
             font-size: 0.75em;
-            color: #5a6a7a;
+            color: #4a5a6a;
             margin-top: 12px;
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -176,17 +152,6 @@
     </style>
 </head>
 <body>
-    <!-- YouTube video background - muted, looping, autoplay, no controls -->
-    <div class="video-bg">
-        <iframe
-            src="https://www.youtube.com/embed/Jmdm3kOriOg?autoplay=1&mute=1&loop=1&playlist=LHJhyrrFRCY&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&iv_load_policy=3"
-            frameborder="0"
-            allow="autoplay"
-            allowfullscreen>
-        </iframe>
-    </div>
-    <div class="video-overlay"></div>
-
     <div class="container">
         <h1 class="server-name">Lucid Rust</h1>
         <p class="tagline">2x Vanilla+ &middot; Monthly Wipes &middot; No P2W</p>
@@ -234,4 +199,3 @@
     </div>
 </body>
 </html>
-
